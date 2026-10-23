@@ -1,0 +1,3 @@
+﻿КОМАНДА: git status --short
+ M settings.ini
+?? evidence/
