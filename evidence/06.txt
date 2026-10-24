@@ -1,0 +1,30 @@
+КОМАНДА: git rev-parse HEAD (SHA L до rebase)
+99b130c06eeb3c4191fbbff7785d8dcaeecf777d
+КОМАНДА: git log --oneline -3
+99b130c task-06: local L inside A
+6a9b994 task 06: форма и инструкция
+08c2d1e История 12: изменение проекта
+КОМАНДА: git rev-parse HEAD (в клоне B, SHA R)
+59e0259c7512607ca412faad9291a260be636115
+КОМАНДА: git -c pull.ff=true pull --rebase origin feature/task-06
+git : From https://github.com/ragonya/git-os-homework
+At line:1 char:1
++ git -c pull.ff=true pull --rebase origin feature/task-06 2>&1 | Out-F ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (From https://gi...git-os-homework:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ * branch            feature/task-06 -> FETCH_HEAD
+   6a9b994..59e0259  feature/task-06 -> origin/feature/task-06
+Rebasing (1/1)
+Successfully rebased and updated refs/heads/feature/task-06.
+КОМАНДА: git rev-parse HEAD (SHA L' после rebase)
+0765a6f202d05ebf8a4f7a8b61fb1e94161ee925
+КОМАНДА: git log --graph --oneline -5
+* 0765a6f task-06: local L inside A
+* 59e0259 task-06: commit R from B
+* 6a9b994 task 06: форма и инструкция
+* 08c2d1e История 12: изменение проекта
+* de6c53d История 11: изменение проекта
+КОМАНДА: git status --short
+?? evidence/
