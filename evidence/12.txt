@@ -1,0 +1,32 @@
+﻿КОМАНДА: Get-Content .gitignore
+__pycache__/
+*.log
+.env
+build/output.txt
+КОМАНДА: git check-ignore -v debug.log .env .env.example build/output.txt build/.gitkeep __pycache__/demo.pyc
+.gitignore:3:.env	.env
+.gitignore:4:build/output.txt	build/output.txt
+.gitignore:1:__pycache__/	__pycache__/demo.pyc
+КОМАНДА: git status --ignored --short
+ M .gitignore
+?? .env.example
+?? build/
+?? evidence/
+!! .env
+!! __pycache__/
+!! build/output.txt
+КОМАНДА: git rm --cached debug.log
+rm 'debug.log'
+КОМАНДА: git status --short
+ M .gitignore
+D  debug.log
+?? .env.example
+?? build/
+?? evidence/
+КОМАНДА: git check-ignore -v debug.log
+.gitignore:2:*.log	debug.log
+КОМАНДА: Test-Path debug.log
+True
+КОМАНДА: git ls-tree --name-only HEAD debug.log
+КОМАНДА: git ls-tree --name-only HEAD~1 debug.log
+debug.log
