@@ -1,0 +1,25 @@
+﻿КОМАНДА: git log --oneline -2
+e449b66 release 07: версия 1.0.0
+0bd3677 task 07: форма и инструкция
+КОМАНДА: git log --oneline --decorate -3
+dcde721 (HEAD -> feature/task-07, tag: v1.1.0-rc1, origin/feature/task-07) task 07: версия 1.1.0-rc1
+e449b66 (tag: v1.0.0) release 07: версия 1.0.0
+0bd3677 task 07: форма и инструкция
+КОМАНДА: git cat-file -t v1.0.0
+tag
+КОМАНДА: git cat-file -t v1.1.0-rc1
+commit
+КОМАНДА: git cat-file -p v1.0.0
+object e449b66904acd6af4cd2cfa49da64c37c50417e7
+type commit
+tag v1.0.0
+tagger Александр Попов <pae-omsk@bk.ru> 1792853932 +0700
+
+Учебный выпуск 1.0.0
+КОМАНДА: git show-ref --tags v1.0.0 v1.1.0-rc1
+0bfedd4757b63744deac10bc1c3938e84ee0003d refs/tags/v1.0.0
+dcde721995a7c14c7f9ef372bbd5a9d0512a45fd refs/tags/v1.1.0-rc1
+КОМАНДА: git ls-remote --tags origin v1.*
+0bfedd4757b63744deac10bc1c3938e84ee0003d	refs/tags/v1.0.0
+e449b66904acd6af4cd2cfa49da64c37c50417e7	refs/tags/v1.0.0^{}
+dcde721995a7c14c7f9ef372bbd5a9d0512a45fd	refs/tags/v1.1.0-rc1
