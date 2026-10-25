@@ -1,0 +1,25 @@
+﻿КОМАНДА: git status --short (до stash)
+M  message.txt
+ M settings.ini
+?? draft.txt
+КОМАНДА: git stash list
+stash@{0}: On feature/task-08: unfinished work
+КОМАНДА: git status --short (после stash)
+КОМАНДА: git log --oneline -2
+716776f task 08: hotfix
+452902d stash 08: подготовить файлы
+КОМАНДА: git status --short (после apply --index)
+M  message.txt
+ M settings.ini
+?? draft.txt
+КОМАНДА: git diff --cached --stat
+ message.txt | 1 +
+ 1 file changed, 1 insertion(+)
+КОМАНДА: git diff --stat
+ settings.ini | 1 +
+ 1 file changed, 1 insertion(+)
+КОМАНДА: git stash list (после drop)
+КОМАНДА: git log --oneline -3
+b8e3677 task 08: stash
+716776f task 08: hotfix
+452902d stash 08: подготовить файлы
