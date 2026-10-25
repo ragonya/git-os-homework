@@ -1,0 +1,28 @@
+﻿КОМАНДА: git log --oneline -3 feature/source-10
+8f57ab3 D3: другое изменение
+6e81298 D2: нужное исправление
+75d0bd0 D1: независимое изменение
+КОМАНДА: git cherry-pick -x 6e81298
+[feature/task-10 51be1ed] D2: нужное исправление
+ Author: Учебный автор <training@example.invalid>
+ Date: Fri Oct 23 19:06:48 2026 +0700
+ 1 file changed, 1 insertion(+)
+ create mode 100644 portable-fix.txt
+КОМАНДА: git log -1
+commit 51be1eddac12256a2b58fc307a8dfa6d1df022d4
+Author: Учебный автор <training@example.invalid>
+Date:   Fri Oct 23 19:06:48 2026 +0700
+
+    D2: нужное исправление
+    
+    (cherry picked from commit 6e812981ab5bf63f4ebbf089fa19ac266137debb)
+КОМАНДА: git log --oneline -3
+51be1ed D2: нужное исправление
+af2ffda task 10: форма и инструкция
+08c2d1e История 12: изменение проекта
+КОМАНДА: git show 6e81298 | git patch-id
+95e28a38dcb2742f5719fb911983e0d3c337ec1c 0000000000000000000000000000000000000000
+КОМАНДА: git show HEAD | git patch-id
+95e28a38dcb2742f5719fb911983e0d3c337ec1c 0000000000000000000000000000000000000000
+КОМАНДА: git ls-files unrelated-a.txt portable-fix.txt unrelated-b.txt
+portable-fix.txt
