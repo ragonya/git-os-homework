@@ -1,0 +1,25 @@
+﻿КОМАНДА: git rev-parse HEAD (SHA LOST)
+4ceecff6c8576a20cfeec6cb1e59ed1b66f8b37d
+КОМАНДА: git log --oneline -2
+4ceecff task 09: LOST
+f63c114 task 09: форма и инструкция
+КОМАНДА: git reset --hard HEAD~1
+HEAD is now at f63c114 task 09: форма и инструкция
+КОМАНДА: git log --oneline -2 (после reset)
+f63c114 task 09: форма и инструкция
+08c2d1e История 12: изменение проекта
+КОМАНДА: git reflog -5
+f63c114 HEAD@{0}: reset: moving to HEAD~1
+4ceecff HEAD@{1}: commit: task 09: LOST
+f63c114 HEAD@{2}: checkout: moving from feature/task-08 to feature/task-09
+a483a64 HEAD@{3}: commit: task-08: evidence
+b8e3677 HEAD@{4}: commit: task 08: stash
+КОМАНДА: git reset --hard <SHA-LOST>
+HEAD is now at 4ceecff task 09: LOST
+КОМАНДА: git log --oneline -2 (после восстановления)
+4ceecff task 09: LOST
+f63c114 task 09: форма и инструкция
+КОМАНДА: git rev-parse HEAD
+4ceecff6c8576a20cfeec6cb1e59ed1b66f8b37d
+КОМАНДА: git ls-remote origin feature/task-09
+f63c1146f2008fa63284c4954963fcf30129b463	refs/heads/feature/task-09
