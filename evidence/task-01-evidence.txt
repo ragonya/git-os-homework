@@ -1,0 +1,42 @@
+﻿task-01 evidence
+testing git reset
+
+ --soft mode
+1. git status --short: 
+M  reset-demo.txt
+?? evidence/
+2. git diff --cached: 
+diff --git a/reset-demo.txt b/reset-demo.txt
+index f70f10e..223b783 100644
+--- a/reset-demo.txt
++++ b/reset-demo.txt
+@@ -1 +1 @@
+-A
++B
+2. git diff: 
+4. cat reset-demo.txt: 
+B
+
+ --mixed mode
+1. git status --short: 
+ M reset-demo.txt
+?? evidence/
+2. git diff --cached: 
+3. git diff: 
+diff --git a/reset-demo.txt b/reset-demo.txt
+index f70f10e..223b783 100644
+--- a/reset-demo.txt
++++ b/reset-demo.txt
+@@ -1 +1 @@
+-A
++B
+4. cat reset-demo.txt: 
+B
+
+ --hard mode
+1. git status --short: 
+?? evidence/
+2. git diff --cached: 
+3. git diff: 
+4. cat reset-demo.txt: 
+A
