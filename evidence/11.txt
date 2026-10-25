@@ -73,7 +73,7 @@ git bisect bad ad27366c6a675967e3f9ab1855e7af10f0489b6c
 # good: [6d7631d0502066a30e6fd1f9e9326f7349359fc5] История 02: изменение проекта
 git bisect good 6d7631d0502066a30e6fd1f9e9326f7349359fc5
 # first 'bad' commit: [ad27366c6a675967e3f9ab1855e7af10f0489b6c] История 03: изменение проекта
-КОМАНДА: python check.py ad27366
+КОМАНДА: python check.py (на ad27366)
 python : Traceback (most recent call last):
 At line:1 char:1
 + python check.py 2>&1 | Out-File $ev -Append -Encoding utf8
@@ -85,7 +85,7 @@ At line:1 char:1
     assert ns['total'](n) == 2 * n + ns['STUDENT_NUMBER']
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError
-КОМАНДА: python check.py (на <SHA>^)
+КОМАНДА: python check.py (на ad27366^)
 OK
 КОМАНДА: git show ad27366 -- calc.py
 commit ad27366c6a675967e3f9ab1855e7af10f0489b6c
