@@ -1,0 +1,111 @@
+﻿КОМАНДА: git blame calc.py
+^8666abb (Учебный автор 2026-10-23 19:06:39 +0700 1) STUDENT_NUMBER = 6
+^8666abb (Учебный автор 2026-10-23 19:06:39 +0700 2) 
+^8666abb (Учебный автор 2026-10-23 19:06:39 +0700 3) def total(n):
+ad27366c (Учебный автор 2026-10-23 19:06:40 +0700 4)     return 2 + n + STUDENT_NUMBER
+КОМАНДА: git rev-parse refs/bisect/bad (ручной)
+ad27366c6a675967e3f9ab1855e7af10f0489b6c
+КОМАНДА: git bisect log (ручной)
+git bisect start
+# status: waiting for both 'good' and 'bad' commits
+# bad: [08c2d1ec3ba8d8868d3701197fc36192d25cca5f] История 12: изменение проекта
+git bisect bad 08c2d1ec3ba8d8868d3701197fc36192d25cca5f
+# status: waiting for 'good' commit(s), 'bad' commit known
+# good: [8666abb28ec3f94e82a36a30f3360c1371fed19e] Начальная рабочая версия
+git bisect good 8666abb28ec3f94e82a36a30f3360c1371fed19e
+# bad: [e16e4fee81786db937f4502eaf4e2d91192e6ca3] История 06: изменение проекта
+git bisect bad e16e4fee81786db937f4502eaf4e2d91192e6ca3
+# bad: [ad27366c6a675967e3f9ab1855e7af10f0489b6c] История 03: изменение проекта
+git bisect bad ad27366c6a675967e3f9ab1855e7af10f0489b6c
+# good: [6d7631d0502066a30e6fd1f9e9326f7349359fc5] История 02: изменение проекта
+git bisect good 6d7631d0502066a30e6fd1f9e9326f7349359fc5
+# first 'bad' commit: [ad27366c6a675967e3f9ab1855e7af10f0489b6c] История 03: изменение проекта
+КОМАНДА: git bisect run python check.py
+running 'python' 'check.py'
+git : Traceback (most recent call last):
+At line:1 char:1
++ git bisect run python check.py 2>&1 | Out-File $ev -Append -Encoding  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\neverw1n\git-practice\check.py", line 5, in <module>
+    assert ns['total'](n) == 2 * n + ns['STUDENT_NUMBER']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Bisecting: 2 revisions left to test after this (roughly 2 steps)
+[ad27366c6a675967e3f9ab1855e7af10f0489b6c] История 03: изменение проекта
+running 'python' 'check.py'
+Traceback (most recent call last):
+  File "C:\Users\neverw1n\git-practice\check.py", line 5, in <module>
+    assert ns['total'](n) == 2 * n + ns['STUDENT_NUMBER']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Bisecting: 0 revisions left to test after this (roughly 1 step)
+[6d7631d0502066a30e6fd1f9e9326f7349359fc5] История 02: изменение проекта
+running 'python' 'check.py'
+OK
+ad27366c6a675967e3f9ab1855e7af10f0489b6c is the first 'bad' commit
+commit ad27366c6a675967e3f9ab1855e7af10f0489b6c
+Author: Учебный автор <training@example.invalid>
+Date:   Fri Oct 23 19:06:40 2026 +0700
+
+    История 03: изменение проекта
+
+ calc.py      | 2 +-
+ progress.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+bisect found first 'bad' commit
+КОМАНДА: git rev-parse refs/bisect/bad (автоматический)
+ad27366c6a675967e3f9ab1855e7af10f0489b6c
+КОМАНДА: git bisect log (автоматический)
+git bisect start
+# status: waiting for both 'good' and 'bad' commits
+# bad: [08c2d1ec3ba8d8868d3701197fc36192d25cca5f] История 12: изменение проекта
+git bisect bad 08c2d1ec3ba8d8868d3701197fc36192d25cca5f
+# status: waiting for 'good' commit(s), 'bad' commit known
+# good: [8666abb28ec3f94e82a36a30f3360c1371fed19e] Начальная рабочая версия
+git bisect good 8666abb28ec3f94e82a36a30f3360c1371fed19e
+# bad: [e16e4fee81786db937f4502eaf4e2d91192e6ca3] История 06: изменение проекта
+git bisect bad e16e4fee81786db937f4502eaf4e2d91192e6ca3
+# bad: [ad27366c6a675967e3f9ab1855e7af10f0489b6c] История 03: изменение проекта
+git bisect bad ad27366c6a675967e3f9ab1855e7af10f0489b6c
+# good: [6d7631d0502066a30e6fd1f9e9326f7349359fc5] История 02: изменение проекта
+git bisect good 6d7631d0502066a30e6fd1f9e9326f7349359fc5
+# first 'bad' commit: [ad27366c6a675967e3f9ab1855e7af10f0489b6c] История 03: изменение проекта
+КОМАНДА: python check.py (на ad27366)
+python : Traceback (most recent call last):
+At line:1 char:1
++ python check.py 2>&1 | Out-File $ev -Append -Encoding utf8
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\neverw1n\git-practice\check.py", line 5, in <module>
+    assert ns['total'](n) == 2 * n + ns['STUDENT_NUMBER']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+КОМАНДА: python check.py (на ad27366^)
+OK
+КОМАНДА: git show ad27366 -- calc.py
+commit ad27366c6a675967e3f9ab1855e7af10f0489b6c
+Author: Учебный автор <training@example.invalid>
+Date:   Fri Oct 23 19:06:40 2026 +0700
+
+    История 03: изменение проекта
+
+diff --git a/calc.py b/calc.py
+index e8501e2..d167193 100644
+--- a/calc.py
++++ b/calc.py
+@@ -1,4 +1,4 @@
+ STUDENT_NUMBER = 6
+ 
+ def total(n):
+-    return 2 * n + STUDENT_NUMBER
++    return 2 + n + STUDENT_NUMBER
+КОМАНДА: python check.py (после исправления)
+OK
+КОМАНДА: git log --oneline -2
+fe313d7 task 11: исправить регрессию в calc.py
+d69e916 task 11: форма и инструкция
