@@ -1,1 +1,4 @@
 __pycache__/
+*.log
+.env
+build/output.txt
