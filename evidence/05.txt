@@ -1,0 +1,7 @@
+﻿КОМАНДА: git log --graph --oneline -4
+*   c832153 Merge branch 'feature/task-05' of https://github.com/ragonya/git-os-homework into feature/task-05
+|\  
+| * 0f0bb17 task-05: commit R from B
+* | 3946caf task-05: local L inside A
+|/  
+* 3ff773f task-05: commit R from B
